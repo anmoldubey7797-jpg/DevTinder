@@ -1,0 +1,16 @@
+import express from "express";
+ const app=express();
+
+
+app.use("/",(req,res,next)=>{
+    console.log("First server start")
+    next();
+})
+app.use("/",(req,res,next)=>{
+    console.log("Second server start")
+    res.send("Second Running")
+})
+
+app.listen(8000,()=>{
+    console.log("Thik hai Server ")
+})
