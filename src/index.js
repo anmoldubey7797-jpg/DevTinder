@@ -8,7 +8,16 @@ app.use("/",(req,res,next)=>{
 })
 app.use("/",(req,res,next)=>{
     console.log("Second server start")
-    res.send("Second Running")
+    // res.send("Second Running")
+    next()
+})
+
+app.use("/",(req,res,next)=>{
+    // 
+    console.log("Third server start")
+     res.send("Third Running")
+    next()
+   
 })
 
 app.listen(8000,()=>{
