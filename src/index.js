@@ -1,12 +1,16 @@
 import express, { response } from "express";
-import mongoose from "mongoose";
+import authUser from "./middlewares/auth.middleware.js";
 import {User} from "./models/user.models.js"
 import connectDB from "./config/database.js";
 import validateSignUp from "./utils/validation.js";
 import bcrypt from "bcrypt";
+import cookieParser from "cookie-parser";
+import jwt from "jsonwebtoken";
 
  const app=express();
+
  app.use(express.json())
+ app.use(cookieParser())
 
 
  app.post("/signup",async(req,res)=>{
@@ -44,12 +48,25 @@ import bcrypt from "bcrypt";
    const isPasswordValid=await bcrypt.compare(password,user.password);
 
    if(isPasswordValid){
+
+      const token=await jwt.sign({_id:user._id},"Anmoltinder99")
+      console.log(token);
+      res.cookie("token",token)
+      res.send("Login successfully")
+
       console.log(isPasswordValid)
-      res.send("user login successfully")
+     
    }
    else{
       throw new Error("Something went wrong here")
    }
+ })
+
+ app.get("/profile",authUser,async(req,res)=>{
+  res.status(200).json({
+   success:true,
+   user:req.user
+  });
  })
 
  app.get("/form",async(req,res)=>{
