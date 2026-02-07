@@ -45,7 +45,7 @@ import jwt from "jsonwebtoken";
    if(!user){
       throw new Error("user is not present here")
    }
-   const isPasswordValid=await bcrypt.compare(password,user.password);
+   const isPasswordValid=await user.isPasswordValidate(password)
 
    if(isPasswordValid){
 

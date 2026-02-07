@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-import validator from "validator"
+import validator from "validator";
+import bcrypt from "bcrypt";
 
 const userSchema=new mongoose.Schema(
     {
@@ -23,5 +24,14 @@ const userSchema=new mongoose.Schema(
         },
     },
     {timestamps:true})
+
+    userSchema.methods.isPasswordValidate=async function(userpassword){
+        const user=this;
+        const passwordhashed=this.password
+
+        const ispasswordhasshed=await bcrypt.compare(userpassword,passwordhashed)
+
+        return ispasswordhasshed
+    }
 
 export const User=mongoose.model("User",userSchema)
