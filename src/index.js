@@ -7,10 +7,9 @@ import cookieParser from "cookie-parser";
  app.use(express.json())
  app.use(cookieParser())
 
-import authRouter from "../routes/authRouter.js";
-import profileRouter from "../routes/profileRouter.js";
-import requestRouter from "../routes/request.js";
-
+import authRouter from "../src/routes/authRouter.js";
+import profileRouter from "../src/routes/profileRouter.js";
+import requestRouter from "../src/routes/request.js";
 app.use("/",authRouter)
 app.use("/",profileRouter)
 app.use("/",requestRouter)

@@ -1,9 +1,9 @@
-import { Connection } from "../src/models/connectionRequest.js";
+import { Connection } from "../models/connectionRequest.js";
 import express from "express"
 
 const requestRouter=express.Router();
-import authUser from "../src/middlewares/auth.middleware.js";
-import { User } from "../src/models/user.models.js";
+import authUser from "../middlewares/auth.middleware.js";
+import { User } from "../models/user.models.js";
 
 requestRouter.post("/request/send/:status/:toUserId",authUser ,async(req,res)=>{
     try{

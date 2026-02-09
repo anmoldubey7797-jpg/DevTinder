@@ -1,8 +1,9 @@
 import express from "express";
 const authRouter=express();
-import authUser from "../src/middlewares/auth.middleware.js";
-import validateSignUp from "../src/utils/validation.js";
-import  {User}  from "../src/models/user.models.js";
+import authUser from "../middlewares/auth.middleware.js";
+
+import validateSignUp from "../utils/validation.js";
+import  {User}  from "../models/user.models.js";
 import bcrypt from "bcrypt";
 
 

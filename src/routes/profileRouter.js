@@ -1,7 +1,7 @@
 import express from "express";
 const profileRouter=express.Router();
-import authUser from "../src/middlewares/auth.middleware.js"
-import {validateEditProfile} from "../src/utils/validation.js"
+import authUser from "../middlewares/auth.middleware.js"
+import {validateEditProfile} from "../utils/validation.js"
 
 profileRouter.get("/profile/view",authUser,async(req,res)=>{
   res.status(200).json({
