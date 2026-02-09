@@ -34,7 +34,7 @@ authRouter.post("/signup",async(req,res)=>{
  })
 
 
-authRouter.post("/login",authUser,async(req,res)=>{
+authRouter.post("/login",async(req,res)=>{
   try{
     const{email,password}=req.body;
     
@@ -63,6 +63,19 @@ authRouter.post("/login",authUser,async(req,res)=>{
     res.status(404).json({message:"Not login successfully"})
   }
   })
+ 
+  authRouter.post("/logout",async(req,res)=>{
+    try{
+    res.cookie("token",null,{
+        expires:new Date(Date.now()),
+    })
+    
+    res.status(200).json({message:"Logout successfully"})
+}catch(error){
+    res.status(401).send("Something went wrong in logout")
+}
+  })
+
 
 
 export default authRouter;

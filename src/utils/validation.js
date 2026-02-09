@@ -13,4 +13,12 @@ const validateSignUp=async(req)=>{
     }
 }
 
+export const validateEditProfile=async(req)=>{
+    const allowedDetailsEdit=["firstName","lastName","email","age","skills","gender"];
+
+    const isEditallowed=Object.keys(req.body).every((field)=>allowedDetailsEdit.includes(field))
+
+    return isEditallowed;
+}
+
 export default validateSignUp;

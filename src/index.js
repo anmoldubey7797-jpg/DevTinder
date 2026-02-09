@@ -1,4 +1,4 @@
-import express, { response } from "express";
+import express from "express";
 import connectDB from "./config/database.js";
 import cookieParser from "cookie-parser";
 
@@ -9,9 +9,11 @@ import cookieParser from "cookie-parser";
 
 import authRouter from "../routes/authRouter.js";
 import profileRouter from "../routes/profileRouter.js";
+import requestRouter from "../routes/request.js";
 
 app.use("/",authRouter)
 app.use("/",profileRouter)
+app.use("/",requestRouter)
 
  
 
