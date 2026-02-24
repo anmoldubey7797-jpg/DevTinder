@@ -62,7 +62,7 @@ const EditProfile = ({user}) => {
               type="text"
               value={firstName}
               placeholder="Enter First Name"
-              className="input input-warning w-full"
+              className="input input-warning w-full  bg-slate-400 text-white"
               onChange={(e) => setFirstName(e.target.value)}
             />
           </div>
@@ -76,7 +76,7 @@ const EditProfile = ({user}) => {
               type="text"
               value={lastName}
               placeholder="Enter Last Name"
-              className="input input-warning w-full"
+              className="input input-warning w-full  bg-slate-400 text-white"
               onChange={(e) => setLastName(e.target.value)}
             />
           </div>
@@ -90,7 +90,7 @@ const EditProfile = ({user}) => {
               type="number"
               value={age}
               placeholder="Enter Age"
-              className="input input-warning w-full"
+              className="input input-warning w-full  bg-slate-400 text-white"
               onChange={(e) => setAge(e.target.value)}
             />
           </div>
@@ -104,7 +104,7 @@ const EditProfile = ({user}) => {
               type="text"
               value={gender}
               placeholder="Gender"
-              className="input input-warning w-full"
+              className="input input-warning w-full bg-slate-400 text-white"
               onChange={(e) => setGender(e.target.value)}
             />
           </div>

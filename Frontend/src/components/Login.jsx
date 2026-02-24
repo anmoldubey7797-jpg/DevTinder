@@ -24,7 +24,7 @@ const Login = () => {
         { withCredentials: true }
       );
 
-      dispatch(addUser(res.data.user || res.data)); // 🔥 missing part
+      dispatch(addUser(res.data.user || res.data));
       navigate("/");
     } catch (error) {
       setError(error?.response?.data?.message || "Something Went Wrong");
@@ -46,76 +46,61 @@ const Login = () => {
   }
   return (
     <div className="min-h-[400px] flex items-center justify-center">
-      <div className="card w-96 bg-green-400 shadow-xl align-middle justify-center ">
+      <div className="card w-96 bg-purple-400 shadow-xl align-middle justify-center ">
         <div className="card-body items-start">
 
-          <h2 className="text-gray-700 justify-center text-3xl">{isLoggedIn ? "Login" : "Sign Up"}</h2>
+          <h2 className="w-full text-center text-gray-700 text-3xl font-semibold mb-4">
+            {isLoggedIn ? "Login" : "Sign Up"}
+          </h2>
 
           {/* Email */}
           {!isLoggedIn && (
             <>
-              <div className="form-control">
-                <label className="label p-0 mb-1 justify-start items-start w-full">
-                  <span className="label-text text-sm w-full text-left">
-                    First Name
-                  </span>
-                </label>
+             <div className="w-full mb-3">
+             <label className="block text-sm mb-1">First Name</label>
 
                 <input
                   type="text"
                   value={firstName}
                   placeholder="Enter First Name"
-                  className="input input-warning w-full h-11 rounded-lg"
+                  className="input input-warning w-full h-[40px] rounded-lg box-border"
                   onChange={(e) => setFirstName(e.target.value)}
                 />
               </div>
 
-              <div className="form-control">
-                <label className="label p-0 mb-1 justify-start items-start w-full">
-                  <span className="label-text text-sm w-full text-left">
-                    Last Name
-                  </span>
-                </label>
+             <div className="w-full mb-3">
+             <label className="block text-sm mb-1">Last Name</label>
 
                 <input
                   type="text"
                   value={lastName}
                   placeholder="Enter Last Name"
-                  className="input input-warning w-full h-11 rounded-lg"
+                  className="input input-warning w-full h-[44px] rounded-lg box-border"
                   onChange={(e) => setlastName(e.target.value)}
                 />
               </div>
             </>
           )}
 
-          <div className="form-control">
-            <label className="label p-0 mb-1 justify-start items-start w-full">
-              <span className="label-text text-sm w-full text-left">
-                Email
-              </span>
-            </label>
-
+          <div className="w-full mb-3">
+            <label className="block text-sm mb-1">Email</label>
             <input
               type="email"
               value={email}
               placeholder="Enter email"
-              className="input input-warning w-full h-11 rounded-lg"
+              className="input input-warning w-full h-[44px] rounded-lg box-border"
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
           {/* Password */}
-          <div className="form-control">
-            <label className="label p-0 mb-1 justify-start items-start w-full">
-              <span className="label-text text-sm  w-full text-left">
-                Password
-              </span>
-            </label>
+          <div className="w-full mb-3">
+            <label className="block text-sm mb-1">Password</label>
             <input
               type="password"
               value={password}
               placeholder="Enter password"
-             className="input input-warning w-full h-11 rounded-lg"
+              className="input input-warning w-full h-[44px] rounded-lg box-border"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>

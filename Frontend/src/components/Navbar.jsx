@@ -20,14 +20,15 @@ const Navbar = () => {
       console.log(error)
     }
   }
+  
  return (
-  <div className="navbar bg-base-300 shadow-sm px-3 md:px-6">
+  <div className="navbar bg-gray-500 shadow-sm px-3 md:px-6">
     
     {/* LEFT */}
     <div className="navbar-start">
       <Link
         to="/"
-        className="btn btn-ghost text-lg md:text-xl p-0"
+        className="btn btn-ghost text-lg md:text-xl p-0 text-white"
       >
         DevTinder
       </Link>
@@ -36,6 +37,7 @@ const Navbar = () => {
     {/* RIGHT */}
     {user && (
       <div className="navbar-end flex items-center gap-1 md:gap-3">
+        
         
         <p className="hidden sm:block mr-2 text-sm md:text-base max-w-[120px] truncate">
           Welcome, {user.firstName}
