@@ -1,7 +1,12 @@
 import mongoose from "mongoose";
 
 const connectDB=async()=>{
- await mongoose.connect("mongodb+srv://anmoldubey7797_db_user:Anmol99@cluster0.bderhuu.mongodb.net/DevTinder")
+    try{
+ await mongoose.connect(process.env.MONGO_URL)
+}catch(error){
+    console.log("Error in connecting to MongoDB",error)
+}
+
 }
 
 export default connectDB;

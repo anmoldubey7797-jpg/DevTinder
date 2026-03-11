@@ -66,12 +66,12 @@ const Feed = () => {
   }
 
   return (
-    <>
-      {feed.map((user) => (
-        <UserCard key={user._id} user={user} />
-      ))}
-    </>
-  );
+  <div className="flex flex-col items-center gap-4 mt-10 mb-32">
+    {feed.map((user) => (
+      <UserCard key={user._id} user={user} />
+    ))}
+  </div>
+);
 };
 
 export default Feed;

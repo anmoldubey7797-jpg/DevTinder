@@ -2,6 +2,8 @@ import express from "express";
 import connectDB from "./config/database.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 
 
  const app=express();
@@ -31,7 +33,7 @@ app.use("/",userRouter)
 connectDB()
 .then(()=>{
    console.log("MongoDb Connect successfully")
-   app.listen(8000,()=>{
+   app.listen(process.env.PORT,()=>{
     console.log("Thik hai Server ")
 })
 })
