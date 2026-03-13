@@ -11,7 +11,7 @@ import http from "http";
  const app=express();
  app.use(cors(
     {
-        origin:"http://localhost:5173",
+         origin: "https://dev-tinder-omega-plum.vercel.app",
         credentials:true
     }
  ))

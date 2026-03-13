@@ -64,8 +64,8 @@ authRouter.post("/login",async(req,res)=>{
        const token=await user.validatetoken()
       res.cookie("token", token, {
   httpOnly: true,
-  sameSite: "lax",
-  secure: false
+  secure: true,
+  sameSite: "none",
 });
         res.status(200).json({
       success: true,
