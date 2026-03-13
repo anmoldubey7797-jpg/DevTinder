@@ -77,18 +77,18 @@ const Chat = () => {
     setNewMessage("");
   };
   return (
-    <div className="h-screen flex justify-center items-center bg-gray-100 overflow-hidden">
+    <div className="h-screen flex justify-center items-center bg-gray-400 overflow-hidden">
 
       <div className="w-[650px] h-[80vh] bg-white shadow-2xl rounded-2xl flex flex-col border">
 
         {/* Header */}
-        <div className="px-6 py-4 border-b flex items-center justify-between bg-white rounded-t-2xl">
+        <div className="px-6 py-4 border-b flex items-center justify-between bg-gray-200 rounded-t-2xl">
           <h1 className="text-lg font-semibold text-gray-700">Chat</h1>
           <div className="text-sm text-gray-400">Online</div>
         </div>
 
         {/* Messages */}
-       <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-50">
+       <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-green-100">
 
   {messages.map((msg, index) => {
     return (
@@ -115,14 +115,14 @@ const Chat = () => {
 </div>
 
         {/* Input */}
-        <div className="p-4 border-t bg-white flex items-center gap-3 rounded-b-2xl">
+        <div className="p-4 border-t  flex items-center gap-3 rounded-b-2xl bg-slate-200">
 
           <input
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
             type="text"
             placeholder="Type a message..."
-            className="flex-1 border border-gray-300 rounded-full px-4 py-2 outline-none focus:border-violet-400"
+            className="flex-1 border border-gray-300 rounded-full px-4 py-2 outline-none focus:border-violet-400 bg-slate-300"
           />
 
           <button onClick={sendMessage}

@@ -6,7 +6,7 @@ import { BASE_URL } from '../utils/constants'
 import { removerUser } from '../utils/userSlice'
 
 const Navbar = () => {
-  const user=useSelector((store)=>store.user)
+  const user=useSelector((store)=>store.user.user)
   const dispatch=useDispatch();
   const navigate=useNavigate();
 
@@ -43,9 +43,9 @@ const Navbar = () => {
       <div className="navbar-end flex items-center gap-1 md:gap-3">
         
         
-        <p className="hidden sm:block mr-2 text-sm md:text-base max-w-[120px] truncate">
-          Welcome, {user.firstName}
-        </p>
+        <p className="hidden sm:block mr-3 text-sm md:text-base text-orange-300 ">
+       Welcome, {user?.firstName}
+       </p>
 
         <div className="dropdown dropdown-end">
           <div
