@@ -27,13 +27,13 @@ const Navbar = () => {
   }
   
  return (
-  <div className="navbar bg-gray-500 shadow-sm px-3 md:px-6">
+  <div className="navbar bg-black shadow-sm px-3 md:px-6">
     
     {/* LEFT */}
     <div className="navbar-start">
       <Link
         to="/"
-        className="btn btn-ghost text-lg md:text-xl p-0 text-white"
+        className=" text-lg md:text-xl p-0 text-blue-300 font-bold"
       >
         DevTinder
       </Link>

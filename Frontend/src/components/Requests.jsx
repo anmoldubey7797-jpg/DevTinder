@@ -41,7 +41,7 @@ const Requests = () => {
     if (requests.length === 0)
     return <h1 className='text-4xl text-black py-20'>No Requests  Avilable Here 😄</h1>
   return (
-    <div className="p-6 text-white">
+    <div className="p-6 text-white flex flex-col items-center">
   <h1 className="text-2xl text-gray-800 font-bold mb-6 p-2">
     Request
   </h1>

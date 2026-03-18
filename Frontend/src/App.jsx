@@ -17,6 +17,7 @@ function App() {
 
   return (
    <>
+   
    <Provider store={appStore}>
    <BrowserRouter basename='/'>
    <Routes>

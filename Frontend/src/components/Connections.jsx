@@ -37,12 +37,12 @@ const Connections = () => {
     return <h1 className='text-4xl text-black py-20'>No connection Found Please Make True Friends 😄</h1>
 
   return (
-    <div className=" min-h-screen p-6 text-white">
+    <div className="min-h-screen p-6 text-white flex flex-col items-center">
       <h1 className="text-2xl  text-gray-800 font-bold mb-6 p-2">
         Connections
       </h1>
 
-      <div className="flex flex-col gap-4 ">
+      <div className="flex flex-col items-center gap-4">
         {connections.map((c) => (
           <div
             key={c._id}

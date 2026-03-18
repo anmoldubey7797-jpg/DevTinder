@@ -13,6 +13,7 @@ const Login = () => {
   const [lastName, setlastName] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(true)
   const [error, setError] = useState("");
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -38,88 +39,88 @@ const Login = () => {
         { withCredentials: true });
 
       dispatch(addUser(res.data.data))
-      return navigate("/profile");
+      navigate("/profile");
     }
     catch (error) {
-      console.log(error.message || "Something went Wrong")
+      setError(error?.response?.data?.message || "Something Went Wrong");
     }
   }
+
   return (
-    <div className="min-h-[400px] flex items-center justify-center">
-      <div className="card w-96 bg-purple-400 shadow-xl align-middle justify-center ">
-        <div className="card-body items-start">
+    <div className="h-[500px] flex items-center justify-center bg-gray-100">
 
-          <h2 className="w-full text-center text-gray-700 text-3xl font-semibold mb-4">
-            {isLoggedIn ? "Login" : "Sign Up"}
-          </h2>
+      <div className="w-[350px] bg-white p-6 rounded-xl shadow-lg">
 
-          {/* Email */}
-          {!isLoggedIn && (
-            <>
-             <div className="w-full mb-3">
-             <label className="block text-sm mb-1">First Name</label>
+        <h2 className="text-2xl font-bold text-center mb-5">
+          {isLoggedIn ? "Login" : "Sign Up"}
+        </h2>
 
-                <input
-                  type="text"
-                  value={firstName}
-                  placeholder="Enter First Name"
-                  className="input input-warning w-full h-[40px] rounded-lg box-border"
-                  onChange={(e) => setFirstName(e.target.value)}
-                />
-              </div>
+        {!isLoggedIn && (
+          <>
+            <div className="mb-3">
+              {/* <label className="block text-sm mb-1">First Name</label> */}
+              <input
+                type="text"
+                value={firstName}
+                placeholder="Enter First Name"
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </div>
 
-             <div className="w-full mb-3">
-             <label className="block text-sm mb-1">Last Name</label>
+            <div className="mb-3">
+              {/* <label className="block text-sm mb-1">Last Name</label> */}
+              <input
+                type="text"
+                value={lastName}
+                placeholder="Enter Last Name"
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                onChange={(e) => setlastName(e.target.value)}
+              />
+            </div>
+          </>
+        )}
 
-                <input
-                  type="text"
-                  value={lastName}
-                  placeholder="Enter Last Name"
-                  className="input input-warning w-full h-[44px] rounded-lg box-border"
-                  onChange={(e) => setlastName(e.target.value)}
-                />
-              </div>
-            </>
-          )}
-
-          <div className="w-full mb-3">
-            <label className="block text-sm mb-1">Email</label>
-            <input
-              type="email"
-              value={email}
-              placeholder="Enter email"
-              className="input input-warning w-full h-[44px] rounded-lg box-border"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-
-          {/* Password */}
-          <div className="w-full mb-3">
-            <label className="block text-sm mb-1">Password</label>
-            <input
-              type="password"
-              value={password}
-              placeholder="Enter password"
-              className="input input-warning w-full h-[44px] rounded-lg box-border"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-
-          {/* Button */}
-          <p className='text-red-800 text-xl'>{error}</p>
-          <div className="form-control mt-4" >
-            <button className="btn btn-primary bg-blue-400 w-20" onClick={isLoggedIn ? handleLogin : signupFrom}>{isLoggedIn ? "Login" : "Sign Up"}</button>
-          </div>
-          <p
-            className="cursor-pointer text-purple-400-300 hover:text-gray-600 font-semibold"
-            onClick={() => setIsLoggedIn((value) => !value)}
-          >
-            {isLoggedIn ? "New User? Sign Up Here" : "Existing User? Login Here"}
-          </p>
+        <div className="mb-3">
+          {/* <label className="block text-sm mb-1">Email</label> */}
+          <input
+            type="email"
+            value={email}
+            placeholder="Enter email"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
+
+        <div className="mb-3">
+          {/* <label className="block text-sm mb-1">Password</label> */}
+          <input
+            type="password"
+            value={password}
+            placeholder="Enter password"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
+        <p className="text-red-500 text-sm mb-2">{error}</p>
+
+        <button
+          className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition"
+          onClick={isLoggedIn ? handleLogin : signupFrom}
+        >
+          {isLoggedIn ? "Login" : "Sign Up"}
+        </button>
+
+        <p
+          className="text-center mt-4 text-sm text-blue-500 cursor-pointer hover:underline"
+          onClick={() => setIsLoggedIn((value) => !value)}
+        >
+          {isLoggedIn ? "New User? Sign Up Here" : "Already have an account? Login"}
+        </p>
+
       </div>
     </div>
-
   )
 }
 

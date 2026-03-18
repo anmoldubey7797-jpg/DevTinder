@@ -44,81 +44,78 @@ const EditProfile = ({user}) => {
   }
 
   return (
-    <div className="flex justify-center  gap-16">
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="card w-96 bg-green-400 shadow-xl">
-        <div className="card-body items-start">
+  <div className="h-[500px] flex justify-center items-center gap-16 bg-gray-100">
 
-          <h2 className="w-full text-center text-2xl text-gray-700 mb-4">
-            Edit Profile
-          </h2>
+    {/* Edit Form */}
+    <div className="w-[350px] bg-white p-6 rounded-xl shadow-lg">
 
-          {/* First Name */}
-          <div className="w-full mb-2">
-            <span className="block text-left text-sm text-gray-800 ">
-              First Name
-            </span>
-            <input
-              type="text"
-              value={firstName}
-              placeholder="Enter First Name"
-              className="input input-warning w-full  bg-slate-400 text-white"
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-          </div>
+      <h2 className="text-2xl font-bold text-center mb-5">
+        Edit Profile
+      </h2>
 
-          {/* Last Name */}
-          <div className="w-full mb-3">
-            <span className="block text-left text-sm text-gray-700 mb-1">
-              Last Name
-            </span>
-            <input
-              type="text"
-              value={lastName}
-              placeholder="Enter Last Name"
-              className="input input-warning w-full  bg-slate-400 text-white"
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </div>
-
-          {/* Age */}
-          <div className="w-full mb-3">
-            <span className="block text-left text-sm text-gray-700 mb-1">
-              Age
-            </span>
-            <input
-              type="number"
-              value={age}
-              placeholder="Enter Age"
-              className="input input-warning w-full  bg-slate-400 text-white"
-              onChange={(e) => setAge(e.target.value)}
-            />
-          </div>
-
-          {/* Gender */}
-          <div className="w-full mb-5">
-            <span className="block text-left text-sm text-gray-700 mb-1">
-              Gender
-            </span>
-            <input
-              type="text"
-              value={gender}
-              placeholder="Gender"
-              className="input input-warning w-full bg-slate-400 text-white"
-              onChange={(e) => setGender(e.target.value)}
-            />
-          </div>
-
-          <button className="btn btn-primary bg-blue-400 w-full" onClick={saveProfile}>
-             Edit Save
-          </button>
-
-        </div>
+      {/* First Name */}
+      <div className="mb-3">
+        <label className="block text-sm mb-1">First Name</label>
+        <input
+          type="text"
+          value={firstName}
+          placeholder="Enter First Name"
+          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          onChange={(e) => setFirstName(e.target.value)}
+        />
       </div>
+
+      {/* Last Name */}
+      <div className="mb-3">
+        <label className="block text-sm mb-1">Last Name</label>
+        <input
+          type="text"
+          value={lastName}
+          placeholder="Enter Last Name"
+          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          onChange={(e) => setLastName(e.target.value)}
+        />
+      </div>
+
+      {/* Age */}
+      <div className="mb-3">
+        <label className="block text-sm mb-1">Age</label>
+        <input
+          type="number"
+          value={age}
+          placeholder="Enter Age"
+          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          onChange={(e) => setAge(e.target.value)}
+        />
+      </div>
+
+      {/* Gender */}
+      <div className="mb-4">
+        <label className="block text-sm mb-1">Gender</label>
+        <input
+          type="text"
+          value={gender}
+          placeholder="Enter Gender"
+          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          onChange={(e) => setGender(e.target.value)}
+        />
+      </div>
+
+      {/* Button */}
+      <button
+        className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition"
+        onClick={saveProfile}
+      >
+        Save Changes
+      </button>
+
     </div>
-     <UserCard  user={{firstName,lastName,age,gender, _id: user._id,}}/>
-</div>
-  );
+
+    {/* Live Preview Card */}
+    <UserCard user={{ firstName, lastName, age, gender, _id: user._id }} />
+
+  </div>
+);
 };
 
 export default EditProfile;
